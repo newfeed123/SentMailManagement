@@ -1,0 +1,227 @@
+
+        
+{% extends "jetpro/layouts/base.html" %}
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+{% block title %} {{systemmailtemplateimportstatus.name}} | {{pagename}} {% endblock%}
+{% block page_name %} {{pagename}} {% endblock%}
+{% block breadcrumbs %}
+<!--begin::Breadcrumb-->
+<ul class="breadcrumb fw-semibold fs-base">
+
+    {% for bc in breadcrumbs|slice:":-1"%}
+    <li class="breadcrumb-item text-muted">
+        {%if bc.link%}
+        <a href="{{bc.link}}" class="text-muted">{{bc.name}}</a>
+        {%else%}
+        {{bc.name}}
+        {%endif%}
+    </li>
+    {%endfor%}
+    {% with breadcrumbs|last as bclast %}
+
+    <li class="breadcrumb-item text-dark">
+        {{bclast.name}}
+    </li>
+    {% endwith %}
+</ul>
+<!--end::Breadcrumb-->
+{% endblock %}
+{% block javascripts %}
+
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SentMailManagement_Const.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_Datatable.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_Classes.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_Edit.js' %}"></script>
+
+            
+{% endblock %}
+{% block content %}
+
+{% load i18n %}
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid pt-0" id="mps_content">
+    <!--begin::Container-->
+    <div class="container-xxl" id="mps_content_container">
+        <form id="SystemMailTemplateImportStatusSentMailManagementEditId_form" class="form d-flex row flex-lg-row" data-kt-redirect="" obj_uuid="{{systemmailtemplateimportstatus.uuid}}">
+            <!--begin::Main column-->
+            
+            <div class="col-xl-12">
+                
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'UUID' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã hệ thống' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="uuidSystemMailTemplateImportStatusSentMailManagementEditInputId" disabled class="form-control " placeholder="{% translate '' %}" name="uuid" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate 'Mã hệ thống' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Tên' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="nameSystemMailTemplateImportStatusSentMailManagementEditInputId"  class="form-control " placeholder="{% translate '' %}" name="name" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Mã' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="codeSystemMailTemplateImportStatusSentMailManagementEditInputId"  class="form-control " placeholder="{% translate '' %}" name="code" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Mã' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="friendly_codeSystemMailTemplateImportStatusSentMailManagementEditInputId"  class="form-control " placeholder="{% translate '' %}" name="friendly_code" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Thời điểm tạo' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+
+    <input class="form-control " placeholder="DD/MM/YYYY HH:mm" format="DD/MM/YYYY HH:mm" data-datepicker="" name="created_at" value="djnow" id="created_atSystemMailTemplateImportStatusSentMailManagementEditInputId"  />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Thời điểm cập nhật' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+
+    <input class="form-control " placeholder="DD/MM/YYYY HH:mm" format="DD/MM/YYYY HH:mm" data-datepicker="" name="updated_at" value="djnow" id="updated_atSystemMailTemplateImportStatusSentMailManagementEditInputId"  />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Class icon' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="icon_classSystemMailTemplateImportStatusSentMailManagementEditInputId"  class="form-control " placeholder="{% translate '' %}" name="icon_class" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Màu gợi nhớ' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="color" id="color_classSystemMailTemplateImportStatusSentMailManagementEditInputId"  class="form-control w-35px h-35px p-2 " placeholder="{% translate '' %}" name="color_class" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+            </div>            
+            <div class="col-xl-12 d-flex flex-column">
+                <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                    <div class="d-flex justify-content-end">
+                        <!--begin::Button-->
+                        <a href="#" id="SystemMailTemplateImportStatusSentMailManagementEdit_cancel" class="btn btn-light me-5" systemmailtemplateimportstatussentmailmanagement-edit-action="cancel">Hủy</a>
+                        <!--end::Button-->
+                        <!--begin::Button-->
+                        <button type="submit" id="SystemMailTemplateImportStatusSentMailManagementEdit_submit" class="btn btn-primary" systemmailtemplateimportstatussentmailmanagement-edit-action="submit">
+                            <span class="indicator-label">Cập nhật</span>
+                            <span class="indicator-progress">Đang cập nhật...
+                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                        </button>
+                        <!--end::Button-->
+                    </div>
+                </div>
+            </div>            
+            <!--end::Main column-->
+        </form>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Content-->
+
+{% endblock %}
+        

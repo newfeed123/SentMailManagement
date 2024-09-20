@@ -1,0 +1,356 @@
+
+        
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+
+
+{% load i18n %}
+                   
+<!--begin::Modal - Add task-->
+	<div class="modal fade" id="SystemMailSentMailSentMailManagementDetailModalId" tabindex="-1" aria-hidden="true">
+		<!--begin::Modal dialog-->
+		<div class="modal-dialog modal-dialog-centered mw-1600px">
+			<!--begin::Modal content-->
+			<div class="modal-content">
+				<!--begin::Modal header-->
+				<div class="modal-header py-3" id="SystemMailSentMailSentMailManagementDetailModalId_header">
+					<!--begin::Modal title-->
+					<h2 class="fw-bold">{% translate 'Xem chi tiết Mail đã gửi' %}</h2>
+					<!--end::Modal title-->
+					<!--begin::Close-->
+					<div class="btn btn-icon btn-sm btn-active-icon-primary"  systemmailsentmailsentmailmanagement-detail-modal-action="close">
+						<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+						<span class="svg-icon svg-icon-1">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+							</svg>
+						</span>
+						<!--end::Svg Icon-->
+					</div>
+					<!--end::Close-->
+				</div>
+				<!--end::Modal header-->
+				<!--begin::Modal body-->
+				<div class="modal-body mx-5 mx-xl-15">
+					<!--begin::Form-->
+					<form id="SystemMailSentMailSentMailManagementDetailModalId_form" class="form" action="#">
+						{% csrf_token %}
+						<!--begin::Scroll-->
+						<div class="d-flex flex-column scroll-y me-n7 pe-7" id="SystemMailSentMailSentMailManagementDetailModalId_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#SystemMailSentMailSentMailManagementCreateModalId_header" data-kt-scroll-wrappers="#SystemMailSentMailSentMailManagementCreateModalId_scroll" data-kt-scroll-offset="300px">
+							<div class="row">
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'UUID' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã hệ thống' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="uuidSystemMailSentMailSentMailManagementDetailModalInputId" disabled class="form-control " placeholder="{% translate '' %}" name="uuid" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate 'Mã hệ thống' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Tên' %}</div>
+    {% if systemmailsentmail.name%}
+        <div class="text-gray-600" name="name" id="nameSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.name}}</div>
+    {%else%}
+        <div class="text-gray-600" name="name" id="nameSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+{% comment %} <div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Mã' %}</div>
+    {% if systemmailsentmail.code%}
+        <div class="text-gray-600" name="code" id="codeSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.code}}</div>
+    {%else%}
+        <div class="text-gray-600" name="code" id="codeSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Mã' %}</div>
+    {% if systemmailsentmail.friendly_code%}
+        <div class="text-gray-600" name="friendly_code" id="friendly_codeSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.friendly_code}}</div>
+    {%else%}
+        <div class="text-gray-600" name="friendly_code" id="friendly_codeSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+
+
+
+<!--begin::Input group-->
+{% comment %} <div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Thời điểm cập nhật' %}</div>
+    {% if systemmailsentmail.updated_at%}
+        <div class="text-gray-600" name="updated_at" id="updated_atSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.updated_at|date:'d-m-Y H:i'}}</div>
+    {%else%}
+        <div class="text-gray-600" name="updated_at" id="updated_atSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+{% comment %} <div class="d-flex flex-column mb-7 fv-row col-6">
+<!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Tổ chức' %}</div>
+    {% if systemmailsentmail.organization%}
+    
+        <div class="text-gray-600" name="organization" id="organizationSystemMailSentMailSentMailManagementDetailModalInputId">
+            <a href="{{org_app_prefix}}/SystemOrganizationManagement/Organization/detail/{{systemmailsentmail.organization.uuid}}/" class="text-gray-600 text-hover-primary" name="organization" id="organizationSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.organization.name}}</a>
+        </div>
+    {%else%}
+        <div class="text-gray-600" name="organization" id="organizationSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+<!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Cá nhân/nhóm người nhận mail' %}</div>
+    {% if systemmailsentmail.addressee%}
+    
+        <div class="text-gray-600" name="addressee" id="addresseeSystemMailSentMailSentMailManagementDetailModalInputId">
+            <a href="{{org_app_prefix}}/HRAccountManagement/HRAccount/detail/{{systemmailsentmail.addressee.uuid}}/" class="text-gray-600 text-hover-primary" name="addressee" id="addresseeSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.addressee.name}}</a>
+        </div>
+    {%else%}
+        <div class="text-gray-600" name="addressee" id="addresseeSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+<!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Mail cần gửi đi' %}</div>
+    {% if systemmailsentmail.mail%}
+    
+        <div class="text-gray-600" name="mail" id="mailSystemMailSentMailSentMailManagementDetailModalInputId">
+            <a href="{{org_app_prefix}}/SentMailManagement/SystemMailMail/detail/{{systemmailsentmail.mail.uuid}}/" class="text-gray-600 text-hover-primary" name="mail" id="mailSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.mail.name}}</a>
+        </div>
+    {%else%}
+        <div class="text-gray-600" name="mail" id="mailSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Tên mail gửi' %}</div>
+    {% if systemmailsentmail.mail_sender%}
+        <div class="text-gray-600" name="mail_sender" id="mail_senderSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.mail_sender}}</div>
+    {%else%}
+        <div class="text-gray-600" name="mail_sender" id="mail_senderSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Danh sách mail nhận' %}</div>
+    {% if systemmailsentmail.to_email%}
+        <div class="text-gray-600" name="to_email" id="to_emailSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.to_email}}</div>
+    {%else%}
+        <div class="text-gray-600" name="to_email" id="to_emailSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Mã trạng thái' %}</div>
+    {% if systemmailsentmail.status_code%}
+        <div class="text-gray-600" name="status_code" id="status_codeSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.status_code}}</div>
+    {%else%}
+        <div class="text-gray-600" name="status_code" id="status_codeSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Trạng thái' %}</div>
+    {% if systemmailsentmail.status_text%}
+        <div class="text-gray-600" name="status_text" id="status_textSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.status_text}}</div>
+    {%else%}
+        <div class="text-gray-600" name="status_text" id="status_textSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+{% comment %} <div class="d-flex flex-column mb-7 fv-row col-6">
+<!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Người tạo' %}</div>
+    {% if systemmailsentmail.hr_created_by%}
+    
+        <div class="text-gray-600" name="hr_created_by" id="hr_created_bySystemMailSentMailSentMailManagementDetailModalInputId">
+            <a href="{{org_app_prefix}}/HRAccountManagement/HRAccount/detail/{{systemmailsentmail.hr_created_by.uuid}}/" class="text-gray-600 text-hover-primary" name="hr_created_by" id="hr_created_bySystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.hr_created_by.name}}</a>
+        </div>
+    {%else%}
+        <div class="text-gray-600" name="hr_created_by" id="hr_created_bySystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+{% comment %} <div class="d-flex flex-column mb-7 fv-row col-6">
+<!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Người cập nhật' %}</div>
+    {% if systemmailsentmail.hr_updated_by%}
+    
+        <div class="text-gray-600" name="hr_updated_by" id="hr_updated_bySystemMailSentMailSentMailManagementDetailModalInputId">
+            <a href="{{org_app_prefix}}/HRAccountManagement/HRAccount/detail/{{systemmailsentmail.hr_updated_by.uuid}}/" class="text-gray-600 text-hover-primary" name="hr_updated_by" id="hr_updated_bySystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.hr_updated_by.name}}</a>
+        </div>
+    {%else%}
+        <div class="text-gray-600" name="hr_updated_by" id="hr_updated_bySystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Nội dung' %}</div>
+    {% comment %} {% if systemmailsentmail.content%}
+        <div class="text-gray-600" name="content" id="contentSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.content|safe}}</div>
+    {%else%}
+        <div class="text-gray-600 form-control rounded-3 mt-3" name="content" id="contentSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%} {% endcomment %}
+    {% comment %} <textarea name="content" id="contentSystemMailTemplateSentMailManagementDetailModalInputId_textareaId" class="form-control  rounded-3" style="height: 500px" allow_tracker_change="true"></textarea> {% endcomment %}
+    <iframe id="contentSystemMailTemplateSentMailManagementDetailModalInputId_textareaId" class="form-control rounded-3" placeholder="{% translate '' %}" name="displayMailTemplate" value="" style="height: 500px"></iframe>
+
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Thời điểm tạo' %}</div>
+    {% if systemmailsentmail.created_at%}
+        <div class="text-gray-600" name="created_at" id="created_atSystemMailSentMailSentMailManagementDetailModalInputId">{{systemmailsentmail.created_at|date:'d-m-Y H:i'}}</div>
+    {%else%}
+        <div class="text-gray-600" name="created_at" id="created_atSystemMailSentMailSentMailManagementDetailModalInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+						</div>
+                    </div>
+						<!--end::Scroll-->
+						<!--begin::Actions-->
+						<div class="text-center pt-8">
+							<button type="reset" class="btn btn-light me-3" systemmailsentmailsentmailmanagement-detail-modal-action="cancel">Hủy</button>
+							
+						</div>
+						<!--end::Actions-->
+					</form>
+					<!--end::Form-->
+				</div>
+				<!--end::Modal body-->
+			</div>
+			<!--end::Modal content-->
+		</div>
+		<!--end::Modal dialog-->
+	</div>
+<!--end::Modal - Add task-->
+
+        

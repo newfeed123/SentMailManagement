@@ -1,0 +1,327 @@
+
+        
+{% extends "jetpro/layouts/base.html" %}
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+{% block title %} {{systemmailtemplateimportdata.name}} | {{pagename}} {% endblock%}
+{% block page_name %} {{pagename}} {% endblock%}
+{% block breadcrumbs %}
+<!--begin::Breadcrumb-->
+<ul class="breadcrumb fw-semibold fs-base">
+
+    {% for bc in breadcrumbs|slice:":-1"%}
+    <li class="breadcrumb-item text-muted">
+        {%if bc.link%}
+        <a href="{{bc.link}}" class="text-muted">{{bc.name}}</a>
+        {%else%}
+        {{bc.name}}
+        {%endif%}
+    </li>
+    {%endfor%}
+    {% with breadcrumbs|last as bclast %}
+
+    <li class="breadcrumb-item text-dark">
+        {{bclast.name}}
+    </li>
+    {% endwith %}
+</ul>
+<!--end::Breadcrumb-->
+{% endblock %}
+{% block javascripts %}
+
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SentMailManagement_Const.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportData/SystemMailTemplateImportData_Datatable.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportData/SystemMailTemplateImportData_Classes.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportData/SystemMailTemplateImportData_Detail.js' %}"></script>
+
+            
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SentMailManagement_Const.js' %}"></script>
+
+
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_ListClasses.js' %}"></script>
+
+
+{% endblock %}
+{% block content %}
+
+{% load i18n %}
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid pt-0 pb-0" id="mps_content">
+    <!--begin::Container-->
+    <div class="container-xxl" id="mps_content_container">
+        <form id="SystemMailTemplateImportDataSentMailManagementDetailId_form" class="form d-flex row flex-lg-row" data-kt-redirect="" obj_uuid="{{systemmailtemplateimportdata.uuid}}">
+            <!--begin::Main column-->
+            <div class="col-xl-12">
+                
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'UUID' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã hệ thống' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="uuidSystemMailTemplateImportDataSentMailManagementDetailInputId" disabled class="form-control " placeholder="{% translate '' %}" name="uuid" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate 'Mã hệ thống' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Tên' %}</div>
+    {% if systemmailtemplateimportdata.name%}
+        <div class="text-gray-600" name="name" id="nameSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.name}}</div>
+    {%else%}
+        <div class="text-gray-600" name="name" id="nameSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Mã' %}</div>
+    {% if systemmailtemplateimportdata.code%}
+        <div class="text-gray-600" name="code" id="codeSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.code}}</div>
+    {%else%}
+        <div class="text-gray-600" name="code" id="codeSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Mã' %}</div>
+    {% if systemmailtemplateimportdata.friendly_code%}
+        <div class="text-gray-600" name="friendly_code" id="friendly_codeSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.friendly_code}}</div>
+    {%else%}
+        <div class="text-gray-600" name="friendly_code" id="friendly_codeSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Thời điểm tạo' %}</div>
+    {% if systemmailtemplateimportdata.created_at%}
+        <div class="text-gray-600" name="created_at" id="created_atSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.created_at|date:'d-m-Y H:i'}}</div>
+    {%else%}
+        <div class="text-gray-600" name="created_at" id="created_atSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Thời điểm cập nhật' %}</div>
+    {% if systemmailtemplateimportdata.updated_at%}
+        <div class="text-gray-600" name="updated_at" id="updated_atSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.updated_at|date:'d-m-Y H:i'}}</div>
+    {%else%}
+        <div class="text-gray-600" name="updated_at" id="updated_atSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+                                   
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 " >
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Tệp dữ liệu' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+   <!--begin::Input group-->
+        <div class="fv-row mb-7 col-12 " id="fileSystemMailTemplateImportDataSentMailManagementDetailInputIdFileAreaId">
+        
+        </div>
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Số lượng dữ liệu tải lên' %}</div>
+    {% if systemmailtemplateimportdata.total_record_number%}
+        <div class="text-gray-600" name="total_record_number" id="total_record_numberSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.total_record_number}}</div>
+    {%else%}
+        <div class="text-gray-600" name="total_record_number" id="total_record_numberSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <div class="text-gray-600" name="total_record_number" id="total_record_numberSystemMailTemplateImportDataSentMailManagementDetailInputId"></div>
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Input-->
+   <label class="form-check form-switch form-check-custom form-check-solid">
+    <input class="form-check-input w-30px h-20px" type="checkbox" value="False" disabled id="is_import_failedSystemMailTemplateImportDataSentMailManagementDetailInputId" checked="False" name="is_import_failed" />
+    <span class="form-check-label text-muted fs-7">{% translate 'Tải lên lỗi' %}</span>
+    </label>
+<!--end::Input-->
+
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Input-->
+   <label class="form-check form-switch form-check-custom form-check-solid">
+    <input class="form-check-input w-30px h-20px" type="checkbox" value="True" disabled id="is_import_successSystemMailTemplateImportDataSentMailManagementDetailInputId" checked="True" name="is_import_success" />
+    <span class="form-check-label text-muted fs-7">{% translate 'Tải thành công' %}</span>
+    </label>
+<!--end::Input-->
+
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'dữ liệu tải lên(json)' %}</div>
+    {% if systemmailtemplateimportdata.json_import_data%}
+        <div class="text-gray-600" name="json_import_data" id="json_import_dataSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.json_import_data|safe}}</div>
+    {%else%}
+        <div class="text-gray-600" name="json_import_data" id="json_import_dataSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'dữ liệu không thỏa mãn yêu cầu' %}</div>
+    {% if systemmailtemplateimportdata.json_check_validation%}
+        <div class="text-gray-600" name="json_check_validation" id="json_check_validationSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.json_check_validation|safe}}</div>
+    {%else%}
+        <div class="text-gray-600" name="json_check_validation" id="json_check_validationSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'dữ liệu bị lỗi' %}</div>
+    {% if systemmailtemplateimportdata.json_fail_data%}
+        <div class="text-gray-600" name="json_fail_data" id="json_fail_dataSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.json_fail_data|safe}}</div>
+    {%else%}
+        <div class="text-gray-600" name="json_fail_data" id="json_fail_dataSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+<!--begin::Details item-->
+    <div class="fw-bold mt-5">{% translate 'Trạng thái tải lên' %}</div>
+    {% if systemmailtemplateimportdata.import_status%}
+    
+        <div class="text-gray-600" name="import_status" id="import_statusSystemMailTemplateImportDataSentMailManagementDetailInputId">
+            <a href="{{org_app_prefix}}/SentMailManagement/SystemMailTemplateImportStatus/detail/{{systemmailtemplateimportdata.import_status.uuid}}/" class="text-gray-600 text-hover-primary" name="import_status" id="import_statusSystemMailTemplateImportDataSentMailManagementDetailInputId">{{systemmailtemplateimportdata.import_status.name}}</a>
+        </div>
+    {%else%}
+        <div class="text-gray-600" name="import_status" id="import_statusSystemMailTemplateImportDataSentMailManagementDetailInputId">trống</div>
+    {%endif%}
+    <!--begin::Details item-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+            </div>
+            <div class="col-xl-12">
+                <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 d-none">
+                    
+                    <div class="d-flex justify-content-end">
+                        <!--begin::Button-->
+                        <a href="#" id="SystemMailTemplateImportDataSentMailManagementDetail_cancel" class="btn btn-light me-5" systemmailtemplateimportdatasentmailmanagement-detail-action="cancel">Hủy</a>
+                        <!--end::Button-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Content-->
+
+{% endblock %}
+        

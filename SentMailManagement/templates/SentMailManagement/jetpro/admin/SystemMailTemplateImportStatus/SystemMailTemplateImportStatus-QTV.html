@@ -1,0 +1,76 @@
+
+        
+{% extends "jetpro/layouts/base.html" %}
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+{% block title %} {{systemmailtemplateimportstatus.name}} | {{pagename}} {% endblock%}
+{% block page_name %} {{pagename}} {% endblock%}
+{% block breadcrumbs %}
+<!--begin::Breadcrumb-->
+<ul class="breadcrumb fw-semibold fs-base">
+
+    {% for bc in breadcrumbs|slice:":-1"%}
+    <li class="breadcrumb-item text-muted">
+        {%if bc.link%}
+        <a href="{{bc.link}}" class="text-muted">{{bc.name}}</a>
+        {%else%}
+        {{bc.name}}
+        {%endif%}
+    </li>
+    {%endfor%}
+    {% with breadcrumbs|last as bclast %}
+
+    <li class="breadcrumb-item text-dark">
+        {{bclast.name}}
+    </li>
+    {% endwith %}
+</ul>
+<!--end::Breadcrumb-->
+{%endblock %}
+{% block javascripts %}
+
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SentMailManagement_Const.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_Datatable.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_Classes.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplateImportStatus/SystemMailTemplateImportStatus_Detail.js' %}"></script>
+
+            
+{% endblock %}
+{% block content %}
+
+{% load i18n %}
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid pt-0" id="mps_content">
+    <!--begin::Container-->
+    <div class="container-xxl" id="mps_content_container">
+        <form id="SystemMailTemplateImportStatusSentMailManagementDetailId_form" class="form d-flex row flex-lg-row" data-kt-redirect="" obj_uuid="{{systemmailtemplateimportstatus.uuid}}">
+            <!--begin::Main column-->
+            <div class="col-xl-12">
+                
+<div class="d-flex flex-column gap-7 gap-lg-10 mb-7 me-lg-10 col-12 col-xl-12 col-md-12">
+    
+</div>
+
+            </div>
+            <div class="col-xl-12">
+                <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                    
+                    <div class="d-flex justify-content-end">
+                        <!--begin::Button-->
+                        <a href="#" id="SystemMailTemplateImportStatusSentMailManagementDetail_cancel" class="btn btn-light me-5" systemmailtemplateimportstatussentmailmanagement-detail-action="cancel">Hủy</a>
+                        <!--end::Button-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Content-->
+
+{% endblock %}
+        

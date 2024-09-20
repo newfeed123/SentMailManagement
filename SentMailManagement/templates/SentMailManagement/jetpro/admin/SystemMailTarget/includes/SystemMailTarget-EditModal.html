@@ -1,0 +1,369 @@
+
+        
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+
+
+{% load i18n %}
+                 
+<!--begin::Modal - Add task-->
+	<div class="modal fade" id="SystemMailTargetSentMailManagementEditModalId" tabindex="-1" aria-hidden="true">
+		<!--begin::Modal dialog-->
+		<div class="modal-dialog modal-dialog-centered mw-1600px">
+			<!--begin::Modal content-->
+			<div class="modal-content">
+				<!--begin::Modal header-->
+				<div class="modal-header py-3" id="SystemMailTargetSentMailManagementEditModalId_header">
+					<!--begin::Modal title-->
+					<h2 class="fw-bold">{% translate 'Chỉnh sửa Cá nhân/nhóm nhận mail' %}</h2>
+					<!--end::Modal title-->
+					<!--begin::Close-->
+					<div class="btn btn-icon btn-sm btn-active-icon-primary"  systemmailtargetsentmailmanagement-edit-modal-action="close">
+						<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+						<span class="svg-icon svg-icon-1">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+							</svg>
+						</span>
+						<!--end::Svg Icon-->
+					</div>
+					<!--end::Close-->
+				</div>
+				<!--end::Modal header-->
+				<!--begin::Modal body-->
+				<div class="modal-body mx-5 mx-xl-15">
+					<!--begin::Form-->
+					<form id="SystemMailTargetSentMailManagementEditModalId_form" class="form" action="#">
+						{% csrf_token %}
+						<!--begin::Scroll-->
+						<div class="d-flex flex-column scroll-y me-n7 pe-7" id="SystemMailTargetSentMailManagementEditModalId_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#SystemMailTargetSentMailManagementCreateModalId_header" data-kt-scroll-wrappers="#SystemMailTargetSentMailManagementCreateModalId_scroll" data-kt-scroll-offset="300px">
+							<div class="row">
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'UUID' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã hệ thống' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="uuidSystemMailTargetSentMailManagementEditModalInputId" disabled class="form-control " placeholder="{% translate '' %}" name="uuid" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate 'Mã hệ thống' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Tên' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="nameSystemMailTargetSentMailManagementEditModalInputId"  class="form-control " placeholder="{% translate '' %}" name="name" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+{% comment %} <div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Mã' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="codeSystemMailTargetSentMailManagementEditModalInputId"  class="form-control " placeholder="{% translate '' %}" name="code" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Mã' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="friendly_codeSystemMailTargetSentMailManagementEditModalInputId"  class="form-control " placeholder="{% translate '' %}" name="friendly_code" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+
+
+
+
+<!--begin::Input group-->
+{% comment %} <div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Thời điểm cập nhật' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+
+    <input class="form-control " placeholder="DD/MM/YYYY HH:mm" format="DD/MM/YYYY HH:mm" data-datepicker="" name="updated_at" value="djnow" id="updated_atSystemMailTargetSentMailManagementEditModalInputId"  />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Người nhận mail' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <select name="target"   id="targetSystemMailTargetSentMailManagementEditModalInputId" aria-label="{% translate '' %}" data-control="select2" data-allow-clear="true" data-allow-clear="true" multiple="multiple" data-placeholder="{% translate '' %}..." class="form-select  hraccountmanagement-hraccount-select-email hraccount-select-email-select-all-multiple-data" data-dropdown-parent="#SystemMailTargetSentMailManagementEditModalId_form">
+        <option value="all">Tất cả</option>
+    </select>
+
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+{% comment %} <div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Nội dung' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <!--end::Input-->
+    <!--begin::Input group-->
+        <!--begin::Editor-->
+            <div id="contentSystemMailTargetSentMailManagementEditModalInputId_toolbar"></div>
+            <div id="contentSystemMailTargetSentMailManagementEditModalInputId"></div>    
+        <!--end::Editor-->
+        <!--begin::Description-->
+        <div class="text-muted fs-7">{% translate '' %}</div>
+        <!--end::Description-->
+    <!--end::Input group-->
+    <textarea name="content" id="contentSystemMailTargetSentMailManagementEditModalInputId_textareaId" class="form-control  rounded-3 d-none" ></textarea>    
+
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Mã trạng thái' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="status_codeSystemMailTargetSentMailManagementEditModalInputId"  class="form-control " placeholder="{% translate '' %}" name="status_code" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Trạng thái' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="status_textSystemMailTargetSentMailManagementEditModalInputId"  class="form-control " placeholder="{% translate '' %}" name="status_text" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Tổ chức' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <select class="form-select  systemorganizationmanagement-organization-select"  data-control="select2" data-allow-clear="true" data-placeholder="Lựa chọn {% translate 'Tổ chức' %}" name="organization" id="organizationSystemMailTargetSentMailManagementEditModalInputId" data-dropdown-parent="#SystemMailTargetSentMailManagementEditModalId_form">
+
+            <option></option>
+    </select>
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Mẫu email' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <select class="form-select  sentmailmanagement-systemmailtemplate-select editModalMailTarget"  data-control="select2" data-allow-clear="true" data-placeholder="Lựa chọn {% translate 'Mẫu email' %}" name="email_template" id="email_templateSystemMailTargetSentMailManagementEditModalInputId" data-dropdown-parent="#SystemMailTargetSentMailManagementEditModalId_form">
+
+            <option></option>
+    </select>
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+
+
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Thời điểm tạo' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+
+    <input class="form-control " placeholder="DD/MM/YYYY HH:mm" format="DD/MM/YYYY HH:mm" data-datepicker="" name="created_at" value="djnow" id="created_atSystemMailTargetSentMailManagementEditModalInputId"  />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'Giao diện mẫu email' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Giao diện mẫu email' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Editor-->
+    {% comment %} <div id="contentSystemMailTemplateSentMailManagementCreateModalInputId_toolbar"></div>
+    <div id="contentSystemMailTemplateSentMailManagementCreateModalInputId"></div>     {% endcomment %}
+    <!--end::Editor-->
+    <!--begin::Input-->
+    <div id="displaySystemMailTargetSentMailManagementEditModalInputId_textareaId" class="form-control rounded-3" placeholder="{% translate '' %}" name="displayMailTemplate" value="" style=""></div>
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7"></div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+{% comment %} <div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Người tạo' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <select class="form-select  hraccountmanagement-hraccount-select"  data-control="select2" data-allow-clear="true" data-placeholder="Lựa chọn {% translate 'Người tạo' %}" name="hr_created_by" id="hr_created_bySystemMailTargetSentMailManagementEditModalInputId" data-dropdown-parent="#SystemMailTargetSentMailManagementEditModalId_form">
+
+            <option></option>
+    </select>
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+
+
+<!--begin::Input group-->
+{% comment %} <div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="">{% translate 'Người cập nhật' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <select class="form-select  hraccountmanagement-hraccount-select"  data-control="select2" data-allow-clear="true" data-placeholder="Lựa chọn {% translate 'Người cập nhật' %}" name="hr_updated_by" id="hr_updated_bySystemMailTargetSentMailManagementEditModalInputId" data-dropdown-parent="#SystemMailTargetSentMailManagementEditModalId_form">
+
+            <option></option>
+    </select>
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+</div>
+						</div>
+						<!--end::Scroll-->
+						<!--begin::Actions-->
+						<div class="text-center pt-8">
+							<button type="reset" class="btn btn-light me-3" systemmailtargetsentmailmanagement-edit-modal-action="cancel">Hủy</button>
+							<button type="submit" class="btn btn-primary" systemmailtargetsentmailmanagement-edit-modal-action="submit">
+								<span class="indicator-label">Lưu</span>
+								<span class="indicator-progress">Đang lưu...
+								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+							</button>
+							
+						</div>
+						<!--end::Actions-->
+					</form>
+					<!--end::Form-->
+				</div>
+				<!--end::Modal body-->
+			</div>
+			<!--end::Modal content-->
+		</div>
+		<!--end::Modal dialog-->
+	</div>
+<!--end::Modal - Add task-->
+
+        

@@ -1,0 +1,207 @@
+
+        
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+
+
+{% load i18n %}
+<!--begin::Modal - Add task-->
+	<div class="modal fade" id="SystemMailServerConfigSentMailManagementCreateModalId" tabindex="-1" aria-hidden="true">
+		<!--begin::Modal dialog-->
+		<div class="modal-dialog modal-dialog-centered mw-1000px">
+			<!--begin::Modal content-->
+			<div class="modal-content">
+				<!--begin::Modal header-->
+				<div class="modal-header py-3" id="SystemMailServerConfigSentMailManagementCreateModalId_header">
+					<!--begin::Modal title-->
+					<h2 class="fw-bold">{% translate 'Thêm Cấu hình email server' %}</h2>
+					<!--end::Modal title-->
+					<!--begin::Close-->
+					<div class="btn btn-icon btn-sm btn-active-icon-primary"  systemmailserverconfigsentmailmanagement-add-modal-action="close">
+						<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+						<span class="svg-icon svg-icon-1">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+							</svg>
+						</span>
+						<!--end::Svg Icon-->
+					</div>
+					<!--end::Close-->
+				</div>
+				<!--end::Modal header-->
+				<!--begin::Modal body-->
+				<div class="modal-body mx-5 mx-xl-15">
+					<!--begin::Form-->
+					<form id="SystemMailServerConfigSentMailManagementCreateModalId_form" class="form" action="#">
+						{% csrf_token %}
+						<!--begin::Scroll-->
+						<div class="d-flex flex-column scroll-y me-n7 pe-7" id="SystemMailServerConfigSentMailManagementCreateModalId_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#SystemMailServerConfigSentMailManagementCreateModalId_header" data-kt-scroll-wrappers="#SystemMailServerConfigSentMailManagementCreateModalId_scroll" data-kt-scroll-offset="300px">
+							<div class="row">
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6 d-none">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'UUID' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã hệ thống' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="uuidSystemMailServerConfigSentMailManagementCreateModalInputId" disabled class="form-control " placeholder="{% translate '' %}" name="uuid" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate 'Mã hệ thống' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'Tên' %}</span>
+        {% comment %} <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã loại email' %}"></i> {% endcomment %}
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="nameSystemMailSeverConfigSentMailManagementCreateModalInputId" class="form-control " placeholder="{% translate '' %}" name="name" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7"></div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2">
+        <span class="required">{% translate 'Mã' %}</span>
+        <i class="fas fa-exclamation-circle d-none ms-1 fs-7 " data-bs-toggle="tooltip" title="{% translate '' %}"></i>
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="friendly_codeSystemMailServerConfigSentMailManagementCreateModalInputId"  class="form-control " placeholder="{% translate '' %}" name="friendly_code" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'Host' %}</span>
+        {% comment %} <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã loại email' %}"></i> {% endcomment %}
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="hostSystemMailSeverConfigSentMailManagementCreateModalInputId" class="form-control " placeholder="{% translate '' %}" name="host" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7"></div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'Port' %}</span>
+        {% comment %} <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã loại email' %}"></i> {% endcomment %}
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="portSystemMailSeverConfigSentMailManagementCreateModalInputId" class="form-control " placeholder="{% translate '' %}" name="port" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7"></div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="fv-row mb-7 col-6">
+    <!--begin::Label-->
+    <label class="fs-6 fw-semibold mb-2 ">
+        <span class="">{% translate 'Giới hạn gửi' %}</span>
+        {% comment %} <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="{% translate 'Mã loại email' %}"></i> {% endcomment %}
+    </label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" id="limit_sendingSystemMailSeverConfigSentMailManagementCreateModalInputId" class="form-control " placeholder="{% translate '' %}" name="limit_sending" value="" />
+    <!--end::Input-->
+    <!--begin::Description-->
+    <div class="text-muted fs-7"></div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Input-->
+   <label class="form-check form-switch form-check-custom form-check-solid">
+    <input class="form-check-input w-30px h-20px" type="checkbox" value="True"  id="is_sslSystemMailSenderConfigSentMailManagementCreateModalInputId" name="is_ssl" />
+    <span class="form-check-label text-muted fs-7">{% translate 'SSL' %}</span>
+    </label>
+    <!--end::Input-->
+
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+
+<!--begin::Input group-->
+{% comment %} <div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Input-->
+   <label class="form-check form-switch form-check-custom form-check-solid">
+    <input class="form-check-input w-30px h-20px" type="checkbox" value="True"  id="activeSystemMailSenderConfigSentMailManagementCreateModalInputId" checked="True" name="active" />
+    <span class="form-check-label text-muted fs-7">{% translate 'Active' %}</span>
+    </label>
+    <!--end::Input-->
+
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div> {% endcomment %}
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="d-flex flex-column mb-7 fv-row col-6">
+    <!--begin::Input-->
+   <label class="form-check form-switch form-check-custom form-check-solid">
+    <input class="form-check-input w-30px h-20px" type="checkbox" id="is_defaultSystemMailSenderConfigSentMailManagementCreateModalInputId" name="is_default" />
+    <span class="form-check-label text-muted fs-7">{% translate 'Mặc định' %}</span>
+    </label>
+    <!--end::Input-->
+
+    <!--begin::Description-->
+    <div class="text-muted fs-7">{% translate '' %}</div>
+    <!--end::Description-->
+</div>
+<!--end::Input group-->
+							</div>
+						</div>
+						<!--end::Scroll-->
+						<!--begin::Actions-->
+						<div class="text-center pt-8">
+							<button type="reset" class="btn btn-light me-3" systemmailserverconfigsentmailmanagement-add-modal-action="cancel">Hủy</button>
+							<button type="submit" class="btn btn-primary" systemmailserverconfigsentmailmanagement-add-modal-action="submit">
+								<span class="indicator-label">Lưu</span>
+								<span class="indicator-progress">Đang lưu...
+								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+							</button>
+							
+						</div>
+						<!--end::Actions-->
+					</form>
+					<!--end::Form-->
+				</div>
+				<!--end::Modal body-->
+			</div>
+			<!--end::Modal content-->
+		</div>
+		<!--end::Modal dialog-->
+	</div>
+	<!--end::Modal - Add task-->
+
+        

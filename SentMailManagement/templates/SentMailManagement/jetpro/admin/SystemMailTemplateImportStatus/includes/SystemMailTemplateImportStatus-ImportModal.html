@@ -1,0 +1,115 @@
+
+{% load i18n %}
+<!--begin::Modal - Adjust Balance-->
+                <div class="modal fade" id="mps_modal_import_systemmailtemplateimportstatussentmailmanagement" tabindex="-1" aria-hidden="true">
+                    <!--begin::Modal dialog-->
+                    <div class="modal-dialog modal-dialog-centered mw-550px">
+                        <!--begin::Modal content-->
+                        <div class="modal-content">
+                            <!--begin::Modal header-->
+                            <div class="modal-header">
+                                <!--begin::Modal title-->
+                                <h2 class="fw-bold">{% translate 'Tải lên Trạng thái tải lên Mẫu email' %}</h2>
+                                <!--end::Modal title-->
+                                <!--begin::Close-->
+                                <div class="btn btn-icon btn-sm btn-active-icon-primary" systemmailtemplateimportstatussentmailmanagement-import-modal-action="close">
+                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                    <span class="svg-icon svg-icon-1">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </div>
+                                <!--end::Close-->
+                            </div>
+                            <!--end::Modal header-->
+                            <!--begin::Modal body-->
+                            <div class="modal-body mx-5 mx-xl-15">
+                                <!--begin::Form-->
+                                <form id="SystemMailTemplateImportStatusSentMailManagementImport_form" class="form" action="#">
+                                    <!--begin::Input group-->
+                                    {% csrf_token %}
+                                    <!--begin::Input group-->
+                                    <div class="fv-row mb-10">
+                                        <!--begin::Label-->
+                                        <label class="required fs-6 fw-semibold form-label mb-2">Định dạng tải lên</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <select name="system_format" disabled data-control="select2" data-allow-clear="true" data-placeholder="Select a format" data-hide-search="true" class="form-select  fw-bold">
+                                            <option></option>
+                                            <option value="excel" selected >Excel</option>
+                                            <!--<option value="pdf">PDF</option>-->
+                                            <!--<option value="cvs">CVS</option>-->
+                                            
+                                            
+                                        </select>
+                                        <!--end::Input-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="fv-row mb-10">
+                                        <!--begin::Dropzone-->
+                                        <div class="dropzone" id="SystemMailTemplateImportStatusSentMailManagementUploadFiles">
+                                            <!--begin::Message-->
+                                            <div class="dz-message needsclick">
+                                                <!--begin::Icon-->
+                                                <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                                                <!--end::Icon-->
+
+                                                <!--begin::Info-->
+                                                <div class="ms-4">
+                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Kéo file vào đây hoặc nhấp để chọn tệp.</h3>
+                                                    <span class="fs-7 fw-semibold text-gray-400">{% translate 'Tệp tải lên Trạng thái tải lên Mẫu email' %} (.xls/.xlsx)</span>
+                                                </div>
+                                                <!--end::Info-->
+                                            </div>
+                                        </div>
+                                        <!--end::Dropzone-->
+                                    </div>
+                                    <div class="fv-row mb-10">
+
+                                    <div class="alert alert-dismissible bg-light-primary border border-danger border-dashed d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+                                                        <!--begin::Icon-->
+                                                        <!--begin::Svg Icon | path: icons/duotune/files/fil024.svg-->
+                                    <span class="svg-icon svg-icon-2hx svg-icon-primary me-4 mb-5 mb-sm-0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.3" d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="currentColor"></path>
+                                    <path d="M20 8L14 2V6C14 7.10457 14.8954 8 16 8H20Z" fill="currentColor"></path>
+                                    <rect x="13.6993" y="13.6656" width="4.42828" height="1.73089" rx="0.865447" transform="rotate(45 13.6993 13.6656)" fill="currentColor"></rect>
+                                    <path d="M15 12C15 14.2 13.2 16 11 16C8.8 16 7 14.2 7 12C7 9.8 8.8 8 11 8C13.2 8 15 9.8 15 12ZM11 9.6C9.68 9.6 8.6 10.68 8.6 12C8.6 13.32 9.68 14.4 11 14.4C12.32 14.4 13.4 13.32 13.4 12C13.4 10.68 12.32 9.6 11 9.6Z" fill="currentColor"></path>
+                                    </svg>
+                                    </span>
+                <!--end::Svg Icon-->                    <!--end::Icon-->
+
+                                        <!--begin::Content-->
+                                        <div class="d-flex flex-column pe-0 pe-sm-10">
+                                            <h5 class="mb-1">Tải tệp mẫu</h5>
+                                            <span>Nếu chưa có tệp mẫu, hãy nhấp vào <a href="{{org_app_prefix}}/SentMailManagement/SystemMailTemplateImportStatus/import-file-template/download/">đây</a> bạn nhé.</span>
+                                        </div>
+                                        <!--end::Content-->
+                                    </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--end::Input group-->
+                                    
+                                    <!--begin::Actions-->
+                                    <div class="text-center">
+                                        <button type="reset" class="btn btn-light me-3" systemmailtemplateimportstatussentmailmanagement-import-modal-action="cancel">Hủy</button>
+                                        <button type="submit" class="btn btn-primary" systemmailtemplateimportstatussentmailmanagement-import-modal-action="submit">
+                                            <span class="indicator-label">Tải lên</span>
+                                            <span class="indicator-progress">Đang tải lên...
+                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                        </button>
+                                    </div>
+                                    <!--end::Actions-->
+                                </form>
+                                <!--end::Form-->
+                            </div>
+                            <!--end::Modal body-->
+                        </div>
+                        <!--end::Modal content-->
+                    </div>
+                    <!--end::Modal dialog-->
+                </div>
+                <!--end::Modal - New Card-->

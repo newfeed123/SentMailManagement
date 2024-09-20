@@ -1,0 +1,124 @@
+
+        
+{% extends "jetpro/layouts/base.html" %}
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load humanize %}
+{% block title %} {{systemmailtemplate.name}} | {{pagename}} {% endblock%}
+{% block page_name %} {{pagename}} {% endblock%}
+{% block breadcrumbs %}
+<!--begin::Breadcrumb-->
+<ul class="breadcrumb fw-semibold fs-base">
+
+    {% for bc in breadcrumbs|slice:":-1"%}
+    <li class="breadcrumb-item text-muted">
+        {%if bc.link%}
+        <a href="{{bc.link}}" class="text-muted">{{bc.name}}</a>
+        {%else%}
+        {{bc.name}}
+        {%endif%}
+    </li>
+    {%endfor%}
+    {% with breadcrumbs|last as bclast %}
+
+    <li class="breadcrumb-item text-dark">
+        {{bclast.name}}
+    </li>
+    {% endwith %}
+</ul>
+<!--end::Breadcrumb-->
+{%endblock %}
+{% block javascripts %}
+
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SentMailManagement_Const.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplate/SystemMailTemplate_Datatable.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplate/SystemMailTemplate_Classes.js' %}"></script>
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailTemplate/SystemMailTemplate_Detail.js' %}"></script>
+
+            
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SentMailManagement_Const.js' %}"></script>
+
+
+<script src="{% static 'SystemOrganizationManagement/'|add:website_template|add:'/admin/js/SystemOrganizationManagement_Const.js' %}"></script>
+
+
+<script src="{% static 'HRAccountManagement/'|add:website_template|add:'/admin/js/HRAccountManagement_Const.js' %}"></script>
+
+
+<script src="{% static 'SentMailManagement/'|add:website_template|add:'/admin/js/SystemMailType/SystemMailType_ListClasses.js' %}"></script>
+
+
+<script src="{% static 'SystemOrganizationManagement/'|add:website_template|add:'/admin/js/Organization/Organization_ListClasses.js' %}"></script>
+
+
+<script src="{% static 'HRAccountManagement/'|add:website_template|add:'/admin/js/HRAccount/HRAccount_ListClasses.js' %}"></script>
+
+
+{% endblock %}
+{% block content %}
+
+{% load i18n %}
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid pt-0" id="mps_content">
+    <!--begin::Container-->
+    <div class="container-xxl" id="mps_content_container">
+        <form id="SystemMailTemplateSentMailManagementDetailId_form" class="form d-flex row flex-lg-row" data-kt-redirect="" obj_uuid="{{systemmailtemplate.uuid}}">
+            <!--begin::Main column-->
+            <div class="col-xl-12">
+                
+<div class="d-flex flex-column gap-7 gap-lg-10 mb-7 me-lg-10 col-12 col-xl-12 col-md-12">
+    
+<div class="d-flex flex-column gap-7 gap-lg-10 mb-7 me-lg-10 col-12 col-sm-12 col-xl-12 col-xxl-12">
+    
+                <!--begin::card group-->
+                <div class=" col-12 col-md-12">
+                        <!--begin::Chart Widget 1-->
+                        <div class="card card-xxl-stretch mb-5">
+                            <!--begin::Card header-->
+                            <div class="card-header border-0 pt-5">
+                                <!--begin::Card title-->
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="card-label fw-bolder fs-3 text-dark">Thông tin bổ sung Mẫu email</span>
+                                    <span class="text-gray-400 mt-2 fw-semibold fs-6"></span>
+                                </h3>
+                            </div>
+                            <!--end::Card title-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                
+            <div class="row">
+                
+            </div>
+            
+                            </div>
+                            <!--end::Card body-->
+                        </div>
+                        <!--end::Chart Widget 1-->
+                </div>
+            
+</div>
+
+</div>
+
+            </div>
+            <div class="col-xl-12">
+                <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                    
+                    <div class="d-flex justify-content-end">
+                        <!--begin::Button-->
+                        <a href="#" id="SystemMailTemplateSentMailManagementDetail_cancel" class="btn btn-light me-5" systemmailtemplatesentmailmanagement-detail-action="cancel">Hủy</a>
+                        <!--end::Button-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Content-->
+
+{% endblock %}
+        
